@@ -1,0 +1,46 @@
+h1{
+text-align: center;
+font-weight:900;
+margin-bottom:4%;
+margin-top:2%;
+transition-delay: 60ms;
+  transition-duration: 1s;
+}
+h1:hover{
+transition-delay: 60ms;
+  transition-duration: 1s;
+  font-size:280%;
+  transform: rotate(-2deg);
+}
+body,html{
+background-color:aliceblue;
+transition-delay: 60ms;
+  transition-duration: 1s;
+}
+.anger{
+padding:3%;
+margin:1%;
+text-align:center;
+border-style:solid;
+border-width:1px;
+border-radius:2rem;
+background-color: rgb(216, 234, 250);
+transition-delay: 60ms;
+  transition-duration: 1s;
+
+
+}
+.anger:hover{
+color:white;
+background-color:rgb(109, 183, 248);
+margin:4%;
+  transition-duration: 1s;
+  transition-delay:60ms;
+
+}
+a{
+font-family: fantasy;
+color:black;
+text-decoration:none;
+font-size:150%;
+}
