@@ -1,0 +1,6 @@
+#brand
+        #url = owner/brands => method=get : get html page for adding brand
+        #                     method=post : {brand_name:"brandname"} (create a brand)
+        #url = owner/brands/1=> method=get : display brand with id=1
+        #                      method=post : update
+	#url = owner/brands/remove/1=> method-get (delete object with id 1)
