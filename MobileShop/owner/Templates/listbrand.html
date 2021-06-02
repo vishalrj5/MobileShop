@@ -26,8 +26,8 @@
             <tr>
                 <td>{{fo.id}}</td>
                 <td>{{fo.brand_name}}</td>
-                <td><button class="btn btn-primary">Edit</button></td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td><a class="btn btn-primary" href="{%url 'editbrand' fo.id%}">Edit</a></td>
+                <td><a class="btn btn-danger" href="{%url 'deletebrand' fo.id%}">Delete</a></td>
             </tr>
             </tbody>
             {%endfor%}
