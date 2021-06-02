@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Mobiles</title>
+    <link rel="stylesheet" href="{%static 'css/createbrand.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+
+    <h1>Your Mobiles</h1>
+    <div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>PRODUCT NAME</th>
+                <th>Image</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Specs</th>
+            </tr>
+        </thead>
+        {%for mobile in mobiles%}
+        <tbody>
+            <tr>
+                <td>{{mobile.mobile_name}}</td>
+                <td><img src="{{mobile.image.url}}" alt="" width="250px" height="320px"></td>
+                <td>{{mobile.brand}}</td>
+                <td>{{mobile.price}}</td>
+                <td>{{mobile.specs}}</td>
+            </tr>
+        </tbody>
+        {%endfor%}
+    </table>
+    </div>
+</body>
+</html>
