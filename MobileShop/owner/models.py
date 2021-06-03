@@ -14,5 +14,6 @@ class Product(models.Model):
     specs=models.CharField(max_length=200)
     image=models.ImageField(upload_to="images")
 
+
     def __str__(self):
         return self.mobile_name

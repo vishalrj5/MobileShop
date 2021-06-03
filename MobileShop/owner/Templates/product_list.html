@@ -15,9 +15,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>PRODUCT NAME</th>
-                <th>Image</th>
                 <th>Brand</th>
+                <th>Product Name</th>
+                <th>Image</th>
                 <th>Price</th>
                 <th>Specs</th>
             </tr>
@@ -25,15 +25,21 @@
         {%for mobile in mobiles%}
         <tbody>
             <tr>
+                <td>{{mobile.brand}}
+                    </td>
                 <td>{{mobile.mobile_name}}</td>
                 <td><img src="{{mobile.image.url}}" alt="" width="250px" height="320px"></td>
-                <td>{{mobile.brand}}</td>
                 <td>{{mobile.price}}</td>
                 <td>{{mobile.specs}}</td>
+                <td> <a href="{%url 'change' mobile.id%}" class="btn btn-info">Edit</a></td>
+                <td> <a href="{%url 'productdetail' mobile.id%}" class="btn btn-warning">View</a></td>
+                <td><a href="{%url 'productremove' mobile.id%}" class="btn btn-danger">Delete</a></td>
             </tr>
         </tbody>
         {%endfor%}
+
     </table>
     </div>
+    <a href="{%url 'index'%}" class="btn btn-info">Go Home</a>
 </body>
 </html>

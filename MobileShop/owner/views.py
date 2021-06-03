@@ -46,6 +46,10 @@ def Edit_Brand(request,id):
 # if the method is get this view will return all objects from models
 # if method is post will create a new object inside models
 
+def Get_Object(id):
+    return Product.objects.get(id=id)
+
+
 def Create_Product(request):
     form=ProductCreateForm()
     context={}
@@ -62,3 +66,31 @@ def List_Product(request):
     context={}
     context["mobiles"]=mobiles
     return render(request,"product_list.html",context)
+
+def Edit_Product(request,*args,**kwargs):
+    id=kwargs["id"]
+    # kwargs={"id":1}
+    product=Product.objects.get(id=id)
+    form=ProductCreateForm(instance=product)
+    context={}
+    context["form"]=form
+    if request.method == "POST":
+        form=ProductCreateForm(instance=product,data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("items")
+    return render(request,"editproduct.html",context)
+
+def Detail_Product(request,*args,**kwargs):
+    id=kwargs.get("id")
+    product = Get_Object(id)
+    context={}
+    context["product"]=product
+
+    return render(request,"detailproduct.html",context)
+
+def Delete_Product(request,*args,**kwargs):
+    id=kwargs.get("id")
+    product = Get_Object(id)
+    product.delete()
+    return render(request,"product_list.html")

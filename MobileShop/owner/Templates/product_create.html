@@ -10,6 +10,7 @@
     {%csrf_token%}
     {{form.as_p}}
     <input type="submit" value="Create">
+    <a href="{%url 'index'%}" class="btn btn-info">Go Home</a>
 </form>
 </body>
 </html>
