@@ -26,7 +26,9 @@ border-width:1px;
 border-radius:2rem;
 background-color: rgb(216, 234, 250);
 transition-delay: 60ms;
-  transition-duration: 1s;
+ transition-duration: 1s;
+
+ box-shadow: 5px 10px #888888;
 
 
 }

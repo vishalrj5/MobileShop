@@ -56,9 +56,12 @@ def Create_Product(request):
     context["form"]=form
     if request.method=="POST":
         form=ProductCreateForm(request.POST,files=request.FILES)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             return render(request,"product_create.html",context)
+        else:
+            context["form"]=form
+            return render(request, "product_create.html", context)
     return render(request,"product_create.html",context)
 
 def List_Product(request):
