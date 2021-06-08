@@ -3,7 +3,7 @@ from .forms import BrandCreateForm,ProductCreateForm
 from .models import Brand,Product
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    return render(request,'home.html')
 
 def Create_Brand(request):
     if request.method=="GET":

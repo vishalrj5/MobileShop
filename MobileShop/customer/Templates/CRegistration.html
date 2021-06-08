@@ -10,5 +10,15 @@
     {{form.as_p}}
     <input type="submit"  value="Submit">
 </form>
+<br>
+<div>
+    {%if messages%}
+        {%for message in messages%}
+        <div style="color:red;">
+            {{message}}
+        </div>
+        {%endfor%}
+    {%endif%}
+</div>
 </body>
 </html>
