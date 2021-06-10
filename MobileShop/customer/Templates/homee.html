@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'index.html'%}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+{% block body_block %}
+
+<h1>Welcome {{request.user}}</h1>
+<div class="row">
+    {%for mobile in mobiles%}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{{mobile.image.url}}" class="card-img-top" alt="No image" width="250px" height="320px">
+            <div class="card-body">
+                <h5 class="card-title">{{mobile.mobile_name}}</h5>
+                <h6>{{mobile.brand}}</h6>
+                <p>{{mobile.price}}</p>
+
+                <a href="{%url 'itemdetail' mobile.id%}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+
+</div>
+
+{% endblock %}
