@@ -17,7 +17,7 @@
                 <h6>{{mobile.brand}}</h6>
                 <p>{{mobile.price}}</p>
                 <p class="card-text">{{mobile.specs}}</p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <a href="{%url 'add_to_cart' mobile.id%}" class="btn btn-primary">Add to Cart</a>
             </div>
         </div>
     </div>

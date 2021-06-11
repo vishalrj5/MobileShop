@@ -18,10 +18,12 @@ from django.shortcuts import render,redirect
 from .forms import UserRegistrationForm,LoginForm
 from django.contrib.auth import authenticate,login as djangologin,logout
 from django.contrib import messages
-from owner.models import Product
-
+from owner.models import Product,Cart
+from owner.views import Get_Object
 def indexx(request):
     return render(request,"index.html")
+
+
 
 
 def Registration(request,*args,**kwargs):
@@ -80,3 +82,33 @@ def Item_Detail(request,*args,**kwargs):
     }
 
     return render(request,"Product_Detail.html",context)
+
+def add_to_cart(request,*args,**kwargs):
+    pid=kwargs.get("id")
+    product=Get_Object(pid)
+    cart=Cart(product=product,user=request.user)
+    cart.save()
+    return redirect("userhome")
+
+def my_cart(request,*args,**kwargs):
+    cart_items=Cart.objects.filter(user=request.user,status="cart")
+    context={
+        "cart_items":cart_items
+
+    }
+    return render(request,"my_cart.html",context)
+
+def remove_cart(request, *args,**kwargs):
+    pid = kwargs.get("id")
+    product = Get_Object(pid)
+    product.delete()
+    cart_items = Cart.objects.filter(user=request.user, status="cart")
+    context = {
+        "cart_items": cart_items
+
+    }
+    return render(request, "my_cart.html", context)
+
+# Login page styling
+# Remove item
+# Orders product,(foreign key) user,address,status(ordered,packed,shipped,canceled,)
