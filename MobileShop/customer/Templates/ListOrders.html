@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%extends 'index.html'%}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+{%block body_block%}
+
+<div class="row">
+    <h1 style="text-align:center;">Orders</h1>
+    {%for order_item in order_items%}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{{order_item.product.image.url}}" class="card-img-top" alt="No image" width="380px" height="420px">
+            <div class="card-body">
+                <h5 class="card-title">{{order_item.product.mobile_name}}</h5>
+                <h6>{{order_item.product.price}}</h6>
+                <p>{{order_item.status}}</p>
+
+                <a href="#" class="btn btn-danger">Cancel item</a>
+
+
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+
+</div>
+
+{%endblock%}

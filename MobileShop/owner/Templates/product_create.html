@@ -15,7 +15,7 @@
         <div class="col-3"></div>
         <div class="col-4">
             <form action="" method="post" enctype="multipart/form-data">
-                {%csrf_token%}
+                {% csrf_token %}
                 {{form.as_p}}
                 <input type="submit" value="Create">
                 <a href="{%url 'index'%}" class="btn btn-info">Go Home</a>

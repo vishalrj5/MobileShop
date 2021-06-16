@@ -25,3 +25,18 @@ class Cart(models.Model):
     options=(("cart","cart"),("orderplaced","orderplaced"))
 
     status=models.CharField(max_length=120,choices=options,default="cart")
+
+class Orders(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    user=models.CharField(max_length=120)
+    address=models.CharField(max_length=200)
+    options=(
+        ("ordered","ordered"),
+        ("packed","packed"),
+        ("canceled","canceled")
+
+    )
+    status=models.CharField(max_length=120,choices=options,default="ordered")
+    date=models.DateField(auto_now=True)
+
+    #  my orders ,

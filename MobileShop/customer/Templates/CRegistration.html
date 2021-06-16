@@ -1,24 +1,46 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{%static 'css/reg.css'%}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
 </head>
-<body>
-<form action="" method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type="submit"  value="Submit">
-</form>
-<br>
-<div>
-    {%if messages%}
-        {%for message in messages%}
-        <div style="color:red;">
-            {{message}}
+<body style="background-color: aliceblue;">
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h1>Welcome to MobileWorld <i class="bi bi-phone"></i></h1>
+            <form class="formregi" action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <br>
+                <input type="submit" class="btn btn-success" value="REGISTER">
+
+            </form>
+            <br>
+            <div>
+                {%if messages%}
+                {%for message in messages%}
+                <div style="color:red;">
+                    {{message}}
+                </div>
+                {%endfor%}
+                {%endif%}
+            </div>
+            <br>
+            <p class="signlast">If You Have an Account Then SignIn <a href="{%url 'signin'%}">Go to SignIn</a></p>
+
         </div>
-        {%endfor%}
-    {%endif%}
+        <div class="col-2"></div>
+    </div>
+
 </div>
 </body>
 </html>
